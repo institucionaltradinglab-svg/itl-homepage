@@ -146,31 +146,27 @@ function ProgramCard({ card, delay }) {
   return (
     <div ref={cardRef} className="itl-fu">
       <SpotlightCard>
-        {/* ── Large media area ── */}
-        <div style={{ height: 400, background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
-          {card.media ? (
-            <>
-              <img
-                src={card.media}
-                alt={card.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-              {/* bottom-to-top fade so text on top is readable */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.3) 45%, transparent 100%)',
-              }} />
-            </>
-          ) : (
-            /* Gold icon centered in tall dark placeholder */
-            <div style={{
-              width: '100%', height: '100%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: 'radial-gradient(ellipse 55% 50% at 50% 55%, rgba(212,176,84,0.07) 0%, transparent 70%)',
-            }}>
+        {/* ── Media area ── */}
+        <div style={{ height: 280, background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
+          <video
+            src="/live-trading.mp4"
+            autoPlay muted loop playsInline
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          {/* bottom-to-top fade */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.25) 50%, transparent 100%)',
+          }} />
+          {/* centered icon overlay */}
+          <div style={{
+            position: 'absolute', inset: 0, zIndex: 2,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <div style={{ opacity: 0.75 }}>
               <card.Icon />
             </div>
-          )}
+          </div>
         </div>
 
         {/* ── Text block at bottom ── */}
