@@ -2,32 +2,24 @@ import { useState, useRef, useEffect } from 'react'
 
 const FAQ_ITEMS = [
   {
-    q: '¿Necesito experiencia previa para entrar al programa?',
-    a: 'No es necesaria experiencia avanzada, pero sí disposición para aprender de forma estructurada. El programa está diseñado para que pases de operar por intuición a operar con sistema, independientemente de tu nivel actual.',
+    q: '¿Cuándo son las sesiones en vivo?',
+    a: 'Las sesiones en directo se realizan en horarios adaptados a diferentes zonas horarias. Las operativas en live son principalmente durante la sesión de New York y las clases de teoría por las tardes (horario España).',
   },
   {
-    q: '¿Qué diferencia a ITL de otros programas de trading?',
-    a: 'Usamos una metodología institucional real — la misma lógica que aplican mesas de operación profesionales — adaptada para traders individuales. No vendemos señales ni estrategias mágicas. Construimos criterio.',
+    q: '¿En qué mercados se puede aplicar la estrategia?',
+    a: 'La estrategia se puede aplicar en: Forex, Criptos, Índices (NASDAQ, SP500), Commodities (Oro) y Futuros.',
   },
   {
-    q: '¿Qué mercados cubre la metodología?',
-    a: 'La metodología es aplicable a futuros (ES, NQ, MES, MNQ), Forex y cripto con suficiente liquidez. Las sesiones en live se centran principalmente en futuros del índice S&P 500.',
+    q: '¿El acceso al contenido es de por vida?',
+    a: 'Sí, una vez compras el Bootcamp tienes acceso de por vida a todo el material grabado, actualizaciones del curso y la comunidad de alumnos.',
   },
   {
-    q: '¿Qué es Algoryze X y cómo funciona?',
-    a: 'Algoryze X es nuestra plataforma de análisis propietaria. Combina lectura de order flow, análisis de liquidez y contexto de sesión para darte un sesgo claro antes de cada operación.',
+    q: '¿Por cuánto tiempo puedo usar los indicadores?',
+    a: 'Tu compra incluye 12 meses de licencia para Algoryze X, que incluye todos los indicadores premium, journaling y backtesting. Después puedes renovar a precio reducido de alumni.',
   },
   {
-    q: '¿Cómo accedo al live trading?',
-    a: 'Las sesiones en vivo se realizan en horario de mercado americano (apertura de NY). Quedan grabadas para acceso posterior. Ves operaciones reales, sin edición ni dramatismo.',
-  },
-  {
-    q: '¿Hay garantía o período de prueba?',
-    a: 'Sí. Si en los primeros 7 días consideras que el programa no es lo que esperabas, te devolvemos el 100% sin preguntas. Creemos en el programa porque sabemos lo que entrega.',
-  },
-  {
-    q: '¿Cuánto tiempo debo dedicar por semana?',
-    a: 'Con 2-3 horas diarias de estudio y práctica es suficiente para avanzar de forma consistente. El programa está diseñado para encajar con quienes tienen trabajo u otras obligaciones.',
+    q: '¿Incluye soporte personalizado?',
+    a: 'Sí, tienes acceso a un chat de soporte 1 a 1, sesiones de Q&A en vivo, y corrección personalizada de tus ejercicios y operaciones.',
   },
 ]
 
