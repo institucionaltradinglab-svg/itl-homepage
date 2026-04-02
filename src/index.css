@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --gold: #d4b054;
+    --gold-rgb: 212, 176, 84;
+    --card: #0a0a0a;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #000000;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(212, 176, 84, 0.25);
+    color: #fff;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Scroll reveal shared base
+────────────────────────────────────────────── */
+.itl-fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.itl-fade-up.itl-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────
+   Scrollbar
+────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(212,176,84,0.18); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(212,176,84,0.35); }

@@ -1,0 +1,8 @@
+category,rule,do_pattern,do_code,dont_pattern,dont_code,severity
+Navigation,Use smooth scroll for anchor links,Add smooth scrolling behavior,html { scroll-behavior: smooth },Jump instantly to sections,No scroll behavior specified,MEDIUM
+Animation,Respect reduced motion preferences,Check prefers-reduced-motion,@media (prefers-reduced-motion: reduce) { * { animation: none } },Ignore accessibility settings,Force animations on all users,HIGH
+Forms,Place labels above inputs,Use top-aligned labels,<label>Email</label><input type=email />,Use placeholder as label,<input placeholder=Email />,HIGH
+Accessibility,Maintain contrast ratio 4.5:1,Use dark text on light backgrounds,color: #1E293B on background: #F8FAFC,Use low contrast text,color: #94A3B8 on background: #F8FAFC,HIGH
+Performance,Lazy load images below fold,Add loading lazy attribute,<img src=photo.jpg loading=lazy />,Load all images at once,<img src=photo.jpg />,MEDIUM
+Buttons,Make CTA buttons visually distinct,Use contrast color and padding,background: #F97316 padding: 12px 24px border-radius: 8px,Blend buttons with background,background: #E2E8F0 on light bg,HIGH
+Trading Data,Use DM Sans for financial numbers and data,Use tabular numbers for alignment,font-family: DM Sans; font-variant-numeric: tabular-nums,Use decorative fonts for numbers,font-family: Playfair Display on price data,HIGH

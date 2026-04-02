@@ -1,0 +1,8 @@
+name,description,implementation,use_cases,do_examples,dont_examples
+Glassmorphism,Frosted glass effect with transparency,background: rgba(255 255 255 / 0.1) backdrop-filter: blur(10px) border: 1px solid rgba(255 255 255 / 0.2),SaaS dashboards fintech cards,Use subtle blur with soft borders,Dont overuse on every element
+Neumorphism,Soft extruded plastic look with shadows,box-shadow: 8px 8px 16px #d1d1d1 and -8px -8px 16px #ffffff,Settings panels toggles buttons,Use on interactive elements only,Dont use on text-heavy sections
+Dark Mode,Dark backgrounds with light text,background: #0F172A color: #F8FAFC,Fintech developer tools dashboards,Use proper contrast ratios 4.5:1,Dont just invert colors
+Minimalist,Clean whitespace focused design,max-width: 680px margin: auto padding: 2rem,Luxury brands portfolios blogs,Use generous whitespace and hierarchy,Dont make it look empty or broken
+Brutalist,Raw bold unconventional design,font-weight: 900 border: 3px solid black text-transform: uppercase,Creative agencies art portfolios,Use intentional rawness with purpose,Dont confuse ugly with brutalist
+Flat Design,No shadows or gradients clean shapes,border-radius: 8px background: solid-color no box-shadow,Mobile apps simple dashboards,Use consistent icon style and spacing,Dont make elements look unclickable
+Dark Trading,Dark background with gold accents for financial authority,background: #121212 color: #FAFAFA accent: #FFC107 border: 1px solid #292929,Trading platforms education dashboards crypto,Use gold sparingly for CTAs and key data points,Dont overuse gold or it loses premium feel

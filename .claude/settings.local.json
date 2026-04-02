@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:21st.dev)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(cp \"/Users/wkasw/Desktop/SKILL DESIGN CLAUDE/.claude/skills/design/assets/logo-itl.png\" \"/Users/wkasw/Desktop/SKILL DESIGN CLAUDE/public/logo-itl.png\")",
+      "Bash(cp \"/Users/wkasw/Desktop/SKILL DESIGN CLAUDE/.claude/skills/design/assets/text-logo.png\" \"/Users/wkasw/Desktop/SKILL DESIGN CLAUDE/public/text-logo.png\")",
+      "WebFetch(domain:www.eldoraui.site)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:cobe.vercel.app)",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(npx vite:*)"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+pattern_name,section_order,cta_placement,color_strategy,effects,conversion_tips
+Hero + Features + CTA,Hero > Features > Testimonials > Pricing > CTA,Above fold and after testimonials,Primary in hero neutral in features CTA color on buttons,Scroll animations fade-in on features,Keep hero headline under 10 words
+Before-After Transformation,Problem > Solution > Before-After > Testimonials > CTA,After transformation section,Dark for problem bright for solution,Slider or side-by-side comparison,Show measurable results not vague promises
+Social Proof First,Logo bar > Hero > Features > Case Studies > CTA,After case studies,Neutral with accent on proof elements,Counter animations for stats,Use real numbers and recognizable logos
+Product Demo Led,Hero with video > How it works > Features > Pricing > CTA,Below demo video and at pricing,Clean background to focus on product visuals,Autoplay muted video or GIF demo,Show the product in action within 5 seconds
+Storytelling Narrative,Hook > Problem > Journey > Solution > CTA,End of narrative arc,Warm colors for story cool for solution,Parallax scrolling between sections,Make the reader the hero of the story
+Trading Education Funnel,Hero with results > Social proof > Curriculum > Testimonials > Pricing > CTA,After social proof and after pricing,Dark background gold CTA muted cards #1A1A1A,Number counters for profit stats glow on hover CTAs,Show real trading results and student testimonials with numbers

@@ -1,0 +1,9 @@
+data_type,best_chart,colors,accessibility,library
+Time series,Line chart,Primary for main line secondary for comparison,Add data point markers for screen readers,Recharts or Chart.js
+Comparison,Bar chart,One color per category max 6 colors,Include value labels on bars,Recharts or D3
+Proportions,Pie or donut chart,Sequential shades of primary color,Add percentage labels and legend,Recharts
+Distribution,Histogram,Primary color with lighter bins,Add axis labels and tooltips,D3 or Chart.js
+Relationship,Scatter plot,Primary for dots secondary for trend line,Add tooltips with exact values,D3
+Geographic,Choropleth map,Sequential gradient light to dark,Include text alternative for data,D3 or Mapbox
+Progress,Progress bar or gauge,CTA color for fill neutral for track,Add numeric percentage label,Custom CSS
+Trading performance,Candlestick or line chart,#FFC107 for profit #7F1D1D for loss on #121212 background,Add tooltips with exact values and percentage change,Lightweight Charts or TradingView widget
