@@ -8,39 +8,43 @@ function AnimatedNavLink({ label, href }) {
       href={href}
       style={{
         textDecoration: 'none',
-        padding: '6px 14px',
-        display: 'inline-block',
+        padding: '8px 14px',
+        display: 'inline-flex',
+        alignItems: 'center',
         overflow: 'hidden',
         position: 'relative',
-        height: '1.3em',
-        lineHeight: '1.3em',
+        height: 34,
       }}
     >
+      {/* visible copy */}
       <span style={{
         display: 'block',
         fontSize: 13,
         fontWeight: 500,
         letterSpacing: '-0.01em',
+        lineHeight: 1,
         color: 'rgba(255,255,255,0.55)',
         transition: 'transform 0.38s cubic-bezier(0.22, 1, 0.36, 1)',
       }} className="nav-label-default">
         {label}
       </span>
+      {/* hover copy — sits exactly one line below */}
       <span style={{
         position: 'absolute',
-        top: '1.3em',
+        top: '100%',
         left: '14px',
         fontSize: 13,
         fontWeight: 500,
         letterSpacing: '-0.01em',
+        lineHeight: 1,
         color: '#ffffff',
         transition: 'transform 0.38s cubic-bezier(0.22, 1, 0.36, 1)',
       }} className="nav-label-hover">
         {label}
       </span>
       <style>{`
-        a:hover .nav-label-default { transform: translateY(-1.3em); }
-        a:hover .nav-label-hover { transform: translateY(-1.3em); }
+        a:hover .nav-label-default { transform: translateY(-200%); }
+        a:hover .nav-label-hover   { transform: translateY(-200%); }
       `}</style>
     </a>
   )
