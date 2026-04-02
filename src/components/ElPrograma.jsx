@@ -153,20 +153,25 @@ function ProgramCard({ card, delay }) {
             autoPlay muted loop playsInline
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
-          {/* bottom-to-top fade */}
+          {/* subtle bottom fade for text legibility */}
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.25) 50%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.1) 40%, transparent 100%)',
           }} />
-          {/* centered icon overlay */}
-          <div style={{
-            position: 'absolute', inset: 0, zIndex: 2,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <div style={{ opacity: 0.75 }}>
-              <card.Icon />
+          {/* LIVE badge — red pill, card 1 only */}
+          {card.badge === 'LIVE' && (
+            <div style={{
+              position: 'absolute', top: 14, left: 14, zIndex: 3,
+              padding: '4px 12px',
+              borderRadius: 9999,
+              background: '#e03131',
+              fontSize: 11, fontWeight: 700,
+              letterSpacing: '0.06em',
+              color: '#fff',
+            }}>
+              LIVE
             </div>
-          </div>
+          )}
         </div>
 
         {/* ── Text block at bottom ── */}
