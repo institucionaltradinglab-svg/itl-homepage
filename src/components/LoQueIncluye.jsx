@@ -59,49 +59,36 @@ const IcoCommunity = () => (
   </svg>
 )
 
-const Check = () => (
-  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-    <circle cx="6.5" cy="6.5" r="5.5" fill="rgba(212,176,84,0.12)"/>
-    <path d="M4 6.5l2 2L9 4.5" stroke="#d4b054" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
-
 const CARDS = [
   {
     Icon: IcoStrategy,
     title: 'Estrategia Institucional',
     body: 'Aprende una estrategia clara y sistematizada, desde la base hasta la ejecución.',
-    bullets: ['Estructura de mercado', 'Niveles de liquidez', 'Modelos de entrada'],
   },
   {
     Icon: IcoAlgoryze,
     title: 'Algoryze X',
     body: 'Accede a nuestra plataforma exclusiva de backtesting, journal de trading avanzado e indicadores premium para apoyarte en tu operativa.',
-    bullets: ['Backtesting integrado', 'Journal automático', 'Indicadores premium'],
   },
   {
     Icon: IcoLive,
     title: 'Sesiones en Live',
     body: 'Sesiones en directo de análisis de mercado, operativas en vivo y resolución de dudas en tiempo real con el equipo.',
-    bullets: ['Operativa en vivo', 'Análisis en directo', 'Q&A en tiempo real'],
   },
   {
     Icon: IcoFunding,
     title: 'Estrategia de Fondeo',
     body: 'Metodología probada y replicable para superar challenges con gestión de riesgo avanzado y modelos de entrada de alta precisión.',
-    bullets: ['Plan de gestión de riesgo', 'Protocolo de challenge', 'Modelos de alta precisión'],
   },
   {
     Icon: IcoSupport,
     title: 'Soporte Personalizado',
     body: 'Chat de soporte 1-1, corrección de operativas y feedback directo y continuo sobre tu desarrollo como trader.',
-    bullets: ['Chat 1-1 con el equipo', 'Corrección de operativas', 'Feedback continuo'],
   },
   {
     Icon: IcoCommunity,
     title: 'Comunidad Privada',
     body: 'Comunidad exclusiva con dirección de mercado diaria, alertas de entradas en vivo y cultura de excelencia operativa.',
-    bullets: ['Dirección diaria', 'Alertas en vivo', 'Cultura de excelencia'],
   },
 ]
 
@@ -149,17 +136,9 @@ function GlassCard({ item, delay }) {
         {item.title}
       </h3>
 
-      <p style={{ fontSize: 13, lineHeight: 1.68, color: 'rgba(255,255,255,0.42)', marginBottom: 18 }}>
+      <p style={{ fontSize: 13, lineHeight: 1.68, color: 'rgba(255,255,255,0.42)' }}>
         {item.body}
       </p>
-
-      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {item.bullets.map(b => (
-          <li key={b} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>
-            <Check /> {b}
-          </li>
-        ))}
-      </ul>
     </div>
   )
 }

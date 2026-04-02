@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react'
-import { motion } from 'framer-motion'
 
 const TESTIMONIALS = [
   {
@@ -59,77 +58,75 @@ const TrustpilotCheck = () => (
   </svg>
 )
 
-function TestimonioCard({ t }) {
+function useFadeUp(delay = 0) {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    el.style.transitionDelay = `${delay}ms`
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { el.classList.add('tst-vis'); obs.unobserve(el) } },
+      { threshold: 0.06 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [delay])
+  return ref
+}
+
+function TestimonioCard({ t, delay }) {
+  const ref = useFadeUp(delay)
+
   return (
-    <div style={{
-      background: '#0a0a0a',
-      border: '1px solid rgba(212,176,84,0.09)',
-      borderRadius: 16,
-      padding: '24px',
-      marginBottom: 12,
-      flexShrink: 0,
-    }}>
+    <div
+      ref={ref}
+      className="tst-card"
+      style={{
+        background: '#0a0a0a',
+        border: '1px solid rgba(212,176,84,0.09)',
+        borderRadius: 16,
+        padding: '26px 24px',
+      }}
+    >
       {/* Stars */}
       <div style={{ display: 'flex', gap: 3, marginBottom: 14 }}>
         {[...Array(5)].map((_, i) => <Star key={i} />)}
       </div>
 
-      {/* Text */}
-      <p style={{
-        fontSize: 13, lineHeight: 1.72,
-        color: 'rgba(255,255,255,0.6)',
-        marginBottom: 20,
-      }}>
+      {/* Review text */}
+      <p style={{ fontSize: 14, lineHeight: 1.72, color: 'rgba(255,255,255,0.6)', marginBottom: 22 }}>
         "{t.text}"
       </p>
 
-      {/* Author */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      {/* Author row */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
         <div style={{
-          width: 34, height: 34, borderRadius: '50%',
+          width: 34, height: 34, borderRadius: '50%', flexShrink: 0,
           background: 'rgba(212,176,84,0.08)',
           border: '1px solid rgba(212,176,84,0.18)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: 10, fontWeight: 700, color: '#d4b054', letterSpacing: '0.04em',
-          flexShrink: 0,
         }}>
           {t.initials}
         </div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            {t.name}
-          </div>
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 600 }}>{t.name}</div>
           <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.32)', marginTop: 1 }}>
             {t.location} · {t.date}
           </div>
         </div>
       </div>
 
-      {/* Trustpilot badge */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 14, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      {/* Trustpilot */}
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 5,
+        paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.05)',
+      }}>
         <TrustpilotCheck />
         <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.25)', letterSpacing: '0.04em' }}>
           Verificado en Trustpilot
         </span>
       </div>
-    </div>
-  )
-}
-
-/* Scrolling column — duplicated for seamless loop */
-function ScrollColumn({ items, duration, reverse = false }) {
-  return (
-    <div style={{ overflow: 'hidden', flex: 1, minWidth: 0 }}>
-      <motion.div
-        animate={{ translateY: reverse ? ['0%', '-50%'] : ['-50%', '0%'] }}
-        transition={{ duration, ease: 'linear', repeat: Infinity }}
-        style={{ display: 'flex', flexDirection: 'column' }}
-      >
-        {/* Duplicate for seamless loop */}
-        {[...items, ...items].map((t, i) => (
-          <TestimonioCard key={`${t.name}-${i}`} t={t} />
-        ))}
-      </motion.div>
     </div>
   )
 }
@@ -153,11 +150,6 @@ export default function Testimonios() {
     obs.observe(el)
     return () => obs.disconnect()
   }, [])
-
-  // Split into 3 columns
-  const col1 = TESTIMONIALS.slice(0, 2)
-  const col2 = TESTIMONIALS.slice(2, 4)
-  const col3 = TESTIMONIALS.slice(4, 6)
 
   return (
     <section id="resultados" style={{ padding: '128px 24px' }}>
@@ -187,22 +179,32 @@ export default function Testimonios() {
           </h2>
         </div>
 
-        {/* Scrolling columns */}
+        {/* Static 3-column grid — fade in on scroll, staggered */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 12,
-          maxHeight: 680,
-          overflow: 'hidden',
-          /* fade top and bottom */
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+          gap: 14,
         }}>
-          <ScrollColumn items={col1} duration={14} />
-          <ScrollColumn items={col2} duration={18} reverse />
-          <ScrollColumn items={col3} duration={16} />
+          {TESTIMONIALS.map((t, i) => (
+            <TestimonioCard key={t.name} t={t} delay={i * 90} />
+          ))}
         </div>
       </div>
+
+      <style>{`
+        .tst-card {
+          opacity: 0;
+          transform: translateY(28px);
+          transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+        }
+        .tst-card.tst-vis { opacity: 1; transform: translateY(0); }
+        @media (max-width: 900px) {
+          #resultados .tst-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 580px) {
+          #resultados .tst-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   )
 }

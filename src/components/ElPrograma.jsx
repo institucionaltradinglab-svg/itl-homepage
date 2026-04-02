@@ -117,14 +117,14 @@ const CARDS = [
     Icon: IconPlay,
     title: 'Sesiones en Live',
     body: 'Sesiones en directo de análisis de mercado, operativas en vivo y resolución de dudas en tiempo real con el equipo.',
-    media: null,
+    media: null,   // gold icon placeholder only
     badge: 'LIVE',
   },
   {
     Icon: IconChart,
     title: 'Análisis de Mercado',
     body: 'Análisis diario de mercado con niveles institucionales, contexto de sesión y sesgo de dirección.',
-    media: '/market-analysis.png',
+    media: null,   // gold icon placeholder only
   },
   {
     Icon: IconUsers,
@@ -147,18 +147,27 @@ function ProgramCard({ card, delay }) {
     <div ref={cardRef} className="itl-fu">
       <SpotlightCard>
         {/* Media */}
-        <div style={{ height: 190, background: '#050505', position: 'relative', overflow: 'hidden' }}>
-          {card.title === 'Sesiones en Live' ? (
-            <video src="/live-trading.mp4" autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          ) : card.media ? (
-            <img src={card.media} alt={card.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ height: 190, background: '#080808', position: 'relative', overflow: 'hidden' }}>
+          {card.media ? (
+            <>
+              <img src={card.media} alt={card.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.15) 50%, transparent 100%)',
+              }} />
+            </>
           ) : (
-            <div style={{ width: '100%', height: '100%', background: '#080808' }} />
+            /* Gold icon placeholder — no external images */
+            <div style={{
+              width: '100%', height: '100%',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: 'radial-gradient(ellipse at 50% 60%, rgba(212,176,84,0.06) 0%, transparent 65%)',
+            }}>
+              <div style={{ opacity: 0.35, transform: 'scale(2.4)' }}>
+                <card.Icon />
+              </div>
+            </div>
           )}
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.15) 50%, transparent 100%)',
-          }} />
           {card.badge && (
             <div style={{
               position: 'absolute', top: 12, left: 12, zIndex: 3,

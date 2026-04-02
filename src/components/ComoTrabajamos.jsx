@@ -121,12 +121,12 @@ export default function ComoTrabajamos() {
             <img
               src="/panel-itl.png"
               alt="Panel ITL trading dashboard"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center' }}
             />
-            {/* Gradient fade right */}
+            {/* Gradient fade right edge only */}
             <div style={{
               position: 'absolute', inset: 0,
-              background: 'linear-gradient(to right, transparent 45%, rgba(0,0,0,0.6) 75%, #000 100%)',
+              background: 'linear-gradient(to right, transparent 60%, rgba(0,0,0,0.5) 88%, #000 100%)',
               zIndex: 1,
             }} />
           </div>

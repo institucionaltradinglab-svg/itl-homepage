@@ -143,6 +143,7 @@ export default function Hero() {
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'center',
       padding: '120px 24px 80px',
       overflow: 'hidden',
     }}>
@@ -150,23 +151,14 @@ export default function Hero() {
 
       {/* Ambient gold center glow */}
       <div aria-hidden="true" style={{
-        position: 'absolute', top: '42%', left: '28%',
+        position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 480, height: 480,
         background: 'radial-gradient(ellipse, rgba(212,176,84,0.035) 0%, transparent 68%)',
         pointerEvents: 'none',
       }} />
 
-      <div style={{ position: 'relative', zIndex: 2, maxWidth: 760, paddingLeft: 'max(0px, calc((100vw - 1100px) / 2))' }}>
-        {/* Section label */}
-        <div style={{
-          fontSize: 11, fontWeight: 500, letterSpacing: '0.14em',
-          textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)',
-          marginBottom: 28,
-        }}>
-          Institucional Trading Lab · Metodología Profesional
-        </div>
-
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
         {/* Headline */}
         <h1 style={{
           fontSize: 'clamp(34px, 5.5vw, 72px)',
@@ -178,7 +170,6 @@ export default function Hero() {
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
           marginBottom: 32,
-          maxWidth: 680,
         }}>
           Aprende una estrategia sistematizada para operar con claridad, control y{' '}
           <TypingWord />
@@ -189,8 +180,8 @@ export default function Hero() {
           fontSize: 16,
           lineHeight: 1.72,
           color: 'rgba(255,255,255,0.48)',
-          maxWidth: 520,
-          marginBottom: 44,
+          maxWidth: 500,
+          margin: '0 auto 44px',
         }}>
           Un sistema claro y replicable para que desarrolles criterio propio y tomes decisiones con lógica en cada trade.
         </p>
