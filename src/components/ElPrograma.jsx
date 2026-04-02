@@ -82,33 +82,33 @@ function SpotlightCard({ children, style }) {
   )
 }
 
-/* ─── Icons ─── */
+/* ─── Icons — sized for the large placeholder area ─── */
 const IconPlay = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <circle cx="10" cy="10" r="9" stroke="#d4b054" strokeWidth="1.3"/>
-    <polygon points="8,7 14,10 8,13" fill="#d4b054"/>
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+    <circle cx="26" cy="26" r="24" stroke="#d4b054" strokeWidth="1.4"/>
+    <polygon points="22,18 36,26 22,34" fill="#d4b054"/>
   </svg>
 )
 const IconChart = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <rect x="2" y="13" width="3" height="5" rx="1" fill="#d4b054" opacity="0.5"/>
-    <rect x="8.5" y="8" width="3" height="10" rx="1" fill="#d4b054" opacity="0.75"/>
-    <rect x="15" y="2" width="3" height="16" rx="1" fill="#d4b054"/>
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+    <rect x="6"  y="34" width="8"  height="12" rx="2" fill="#d4b054" opacity="0.45"/>
+    <rect x="22" y="22" width="8"  height="24" rx="2" fill="#d4b054" opacity="0.7"/>
+    <rect x="38" y="6"  width="8"  height="40" rx="2" fill="#d4b054"/>
   </svg>
 )
 const IconUsers = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <circle cx="7" cy="6" r="3" stroke="#d4b054" strokeWidth="1.3"/>
-    <circle cx="14" cy="6" r="2.5" stroke="#d4b054" strokeWidth="1.3"/>
-    <path d="M1 18c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#d4b054" strokeWidth="1.3" strokeLinecap="round"/>
-    <path d="M14 11c2.21 0 4 1.79 4 4" stroke="#d4b054" strokeWidth="1.3" strokeLinecap="round"/>
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+    <circle cx="18" cy="16" r="8"  stroke="#d4b054" strokeWidth="1.4"/>
+    <circle cx="36" cy="15" r="6"  stroke="#d4b054" strokeWidth="1.4"/>
+    <path d="M2 46c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#d4b054" strokeWidth="1.4" strokeLinecap="round"/>
+    <path d="M36 27c5.523 0 10 4.477 10 10" stroke="#d4b054" strokeWidth="1.4" strokeLinecap="round"/>
   </svg>
 )
 const IconTerminal = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <rect x="2" y="3" width="16" height="14" rx="3" stroke="#d4b054" strokeWidth="1.3"/>
-    <path d="M6 7l3 3-3 3" stroke="#d4b054" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-    <line x1="11" y1="13" x2="15" y2="13" stroke="#d4b054" strokeWidth="1.3" strokeLinecap="round"/>
+  <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+    <rect x="4" y="8" width="44" height="36" rx="7" stroke="#d4b054" strokeWidth="1.4"/>
+    <path d="M16 18l10 8-10 8" stroke="#d4b054" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+    <line x1="30" y1="34" x2="44" y2="34" stroke="#d4b054" strokeWidth="1.4" strokeLinecap="round"/>
   </svg>
 )
 
@@ -146,47 +146,46 @@ function ProgramCard({ card, delay }) {
   return (
     <div ref={cardRef} className="itl-fu">
       <SpotlightCard>
-        {/* Media */}
-        <div style={{ height: 190, background: '#080808', position: 'relative', overflow: 'hidden' }}>
+        {/* ── Large media area ── */}
+        <div style={{ height: 400, background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
           {card.media ? (
             <>
-              <img src={card.media} alt={card.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img
+                src={card.media}
+                alt={card.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              {/* bottom-to-top fade so text on top is readable */}
               <div style={{
                 position: 'absolute', inset: 0,
-                background: 'linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.15) 50%, transparent 100%)',
+                background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.3) 45%, transparent 100%)',
               }} />
             </>
           ) : (
-            /* Gold icon placeholder — no external images */
+            /* Gold icon centered in tall dark placeholder */
             <div style={{
               width: '100%', height: '100%',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: 'radial-gradient(ellipse at 50% 60%, rgba(212,176,84,0.06) 0%, transparent 65%)',
+              background: 'radial-gradient(ellipse 55% 50% at 50% 55%, rgba(212,176,84,0.07) 0%, transparent 70%)',
             }}>
-              <div style={{ opacity: 0.35, transform: 'scale(2.4)' }}>
-                <card.Icon />
-              </div>
-            </div>
-          )}
-          {card.badge && (
-            <div style={{
-              position: 'absolute', top: 12, left: 12, zIndex: 3,
-              padding: '3px 10px', borderRadius: 9999,
-              background: 'rgba(212,176,84,0.12)',
-              border: '1px solid rgba(212,176,84,0.35)',
-              fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: '#d4b054',
-            }}>
-              {card.badge}
+              <card.Icon />
             </div>
           )}
         </div>
-        {/* Text */}
-        <div style={{ padding: '20px 22px 26px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-            <card.Icon />
-            <h3 style={{ fontSize: 15, fontWeight: 700, letterSpacing: '-0.015em' }}>{card.title}</h3>
-          </div>
-          <p style={{ fontSize: 13, lineHeight: 1.68, color: 'rgba(255,255,255,0.42)' }}>{card.body}</p>
+
+        {/* ── Text block at bottom ── */}
+        <div style={{ padding: '22px 24px 28px' }}>
+          <h3 style={{
+            fontSize: 17, fontWeight: 700,
+            letterSpacing: '-0.02em',
+            color: '#d4b054',
+            marginBottom: 8,
+          }}>
+            {card.title}
+          </h3>
+          <p style={{ fontSize: 13, lineHeight: 1.65, color: 'rgba(255,255,255,0.42)' }}>
+            {card.body}
+          </p>
         </div>
       </SpotlightCard>
     </div>
@@ -206,19 +205,19 @@ export default function ElPrograma() {
             El Programa
           </p>
           <h2 style={{
-            fontSize: 'clamp(24px, 3vw, 38px)',
-            fontWeight: 800, lineHeight: 1.1,
-            letterSpacing: '-0.03em',
+            fontSize: 'clamp(28px, 4vw, 56px)',
+            fontWeight: 800, lineHeight: 1.08,
+            letterSpacing: '-0.035em',
             background: 'linear-gradient(160deg, #fff 0%, rgba(255,255,255,0.55) 100%)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-            marginBottom: 56, maxWidth: 520,
+            marginBottom: 48, maxWidth: 620,
           }}>
-            Todo lo que necesitas para construir una operativa sólida
+            Todo lo que necesitas para operar como un institucional
           </h2>
         </div>
 
-        {/* Cards grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+        {/* Cards grid — 2 columns × 2 rows */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
           {CARDS.map((card, i) => <ProgramCard key={card.title} card={card} delay={i * 80} />)}
         </div>
       </div>
