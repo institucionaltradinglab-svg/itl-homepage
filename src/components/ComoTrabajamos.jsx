@@ -47,34 +47,6 @@ export default function ComoTrabajamos() {
             Operar sin una estructura definida lleva a decisiones impulsivas y emocionales, y a resultados inconsistentes. El problema no es la falta de conocimiento. Es la falta de un proceso que puedas aplicar y repetir. Institutional Trading Lab organiza el trading en un sistema claro: entender la estructura, aplicar una estrategia concreta y ejecutar con control.
           </p>
 
-          <button
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '0 28px', height: 48,
-              borderRadius: 9999,
-              border: '1px solid rgba(212,176,84,0.3)',
-              background: 'transparent',
-              color: '#d4b054',
-              fontSize: 13, fontWeight: 500,
-              fontFamily: 'inherit', cursor: 'pointer',
-              transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = 'rgba(212,176,84,0.85)'
-              e.currentTarget.style.background = 'rgba(212,176,84,0.06)'
-              e.currentTarget.style.boxShadow = '0 0 24px rgba(212,176,84,0.16)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'rgba(212,176,84,0.3)'
-              e.currentTarget.style.background = 'transparent'
-              e.currentTarget.style.boxShadow = 'none'
-            }}
-          >
-            Ver cómo funciona
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-              <path d="M3 7H11M8 4L11 7L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
         </div>
 
         {/* ─── Right — depth panel ─── */}

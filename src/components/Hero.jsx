@@ -386,6 +386,7 @@ export default function Hero() {
             e.currentTarget.style.background  = 'transparent'
             e.currentTarget.style.boxShadow   = 'none'
           }}
+          onClick={() => document.getElementById('metodología')?.scrollIntoView({ behavior: 'smooth' })}
         >
           Ver cómo funciona
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

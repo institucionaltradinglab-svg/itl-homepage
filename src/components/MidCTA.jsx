@@ -144,34 +144,36 @@ export default function MidCTA() {
           Desarrolla una operativa basada en reglas claras, ejecución consciente y consistencia a largo plazo.
         </p>
 
-        <button
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '0 36px', height: 52,
-            borderRadius: 9999,
-            border: '1px solid rgba(212,176,84,0.4)',
-            background: 'transparent',
-            color: '#d4b054',
-            fontSize: 14, fontWeight: 500,
-            fontFamily: 'inherit', cursor: 'pointer',
-            transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'rgba(212,176,84,0.9)'
-            e.currentTarget.style.background   = 'rgba(212,176,84,0.07)'
-            e.currentTarget.style.boxShadow    = '0 0 28px rgba(212,176,84,0.2)'
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'rgba(212,176,84,0.4)'
-            e.currentTarget.style.background  = 'transparent'
-            e.currentTarget.style.boxShadow   = 'none'
-          }}
-        >
-          Empieza hoy
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M3 7H11M8 4L11 7L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+        <a href="https://itl-vsl.vercel.app" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+          <button
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              padding: '0 36px', height: 52,
+              borderRadius: 9999,
+              border: '1px solid rgba(212,176,84,0.4)',
+              background: 'transparent',
+              color: '#d4b054',
+              fontSize: 14, fontWeight: 500,
+              fontFamily: 'inherit', cursor: 'pointer',
+              transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = 'rgba(212,176,84,0.9)'
+              e.currentTarget.style.background   = 'rgba(212,176,84,0.07)'
+              e.currentTarget.style.boxShadow    = '0 0 28px rgba(212,176,84,0.2)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'rgba(212,176,84,0.4)'
+              e.currentTarget.style.background  = 'transparent'
+              e.currentTarget.style.boxShadow   = 'none'
+            }}
+          >
+            Empieza hoy
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M3 7H11M8 4L11 7L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </a>
       </div>
     </section>
   )

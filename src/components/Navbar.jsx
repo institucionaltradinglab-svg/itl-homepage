@@ -102,6 +102,7 @@ export default function Navbar() {
         </div>
 
         {/* Student Login CTA */}
+        <a href="https://hub.institucionaltradinglab.com/auth" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
         <button style={{
           padding: '0 18px',
           height: 34,
@@ -130,6 +131,7 @@ export default function Navbar() {
         >
           Student Login
         </button>
+        </a>
       </nav>
     </header>
   )
