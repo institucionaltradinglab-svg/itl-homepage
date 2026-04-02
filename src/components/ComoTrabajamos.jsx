@@ -78,57 +78,72 @@ export default function ComoTrabajamos() {
         </div>
 
         {/* ─── Right — depth panel ─── */}
-        <div ref={rightRef} className="itl-fade-up" style={{ position: 'relative', height: 440 }}>
-          {/* Depth card 3 — furthest */}
-          <div style={{
-            position: 'absolute', inset: 0,
-            top: 28, left: 20, right: -20,
-            background: '#060606',
-            border: '1px solid rgba(212,176,84,0.05)',
-            borderRadius: 20,
-            transform: 'perspective(1000px) rotateY(-3deg) rotateX(2deg) scale(0.93)',
-            transformOrigin: 'left center',
-          }} />
-          {/* Depth card 2 */}
-          <div style={{
-            position: 'absolute', inset: 0,
-            top: 14, left: 10, right: -10,
-            background: '#090909',
-            border: '1px solid rgba(212,176,84,0.07)',
-            borderRadius: 20,
-            transform: 'perspective(1000px) rotateY(-3deg) rotateX(2deg) scale(0.97)',
-            transformOrigin: 'left center',
-          }} />
+        <div ref={rightRef} className="itl-fade-up" style={{ position: 'relative' }}>
 
-          {/* Main panel */}
+          {/* Depth wrapper applies the shared 3-D transform to ALL layers */}
           <div style={{
-            position: 'absolute', inset: 0,
-            borderRadius: 20,
-            overflow: 'hidden',
-            border: '1px solid rgba(212,176,84,0.14)',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.5), -4px 4px 32px rgba(212,176,84,0.05)',
-            transform: 'perspective(1000px) rotateY(-3deg) rotateX(2deg)',
+            transform: 'perspective(1100px) rotateY(-7deg) rotateX(3deg)',
             transformOrigin: 'left center',
-            background: '#0a0a0a',
+            transformStyle: 'preserve-3d',
           }}>
-            {/* Gold glow top-left */}
+
+            {/* ── Layer 3 — furthest shadow ── */}
             <div aria-hidden="true" style={{
-              position: 'absolute', top: -50, left: -50,
-              width: 240, height: 240,
-              background: 'radial-gradient(circle, rgba(212,176,84,0.25) 0%, transparent 65%)',
-              borderRadius: '50%', zIndex: 2, pointerEvents: 'none',
-            }} />
-            <img
-              src="/panel-itl.png"
-              alt="Panel ITL trading dashboard"
-              style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center' }}
-            />
-            {/* Gradient fade right edge only */}
-            <div style={{
               position: 'absolute', inset: 0,
-              background: 'linear-gradient(to right, transparent 60%, rgba(0,0,0,0.5) 88%, #000 100%)',
-              zIndex: 1,
+              borderRadius: 16,
+              background: '#050505',
+              border: '1px solid rgba(212,176,84,0.04)',
+              transform: 'translateZ(-32px) translateX(22px) translateY(14px)',
             }} />
+
+            {/* ── Layer 2 — mid shadow ── */}
+            <div aria-hidden="true" style={{
+              position: 'absolute', inset: 0,
+              borderRadius: 16,
+              background: '#080808',
+              border: '1px solid rgba(212,176,84,0.07)',
+              transform: 'translateZ(-16px) translateX(11px) translateY(7px)',
+            }} />
+
+            {/* ── Main device frame ── */}
+            <div style={{
+              position: 'relative',
+              borderRadius: 14,
+              overflow: 'hidden',
+              background: '#0d0d0d',
+              border: '1px solid rgba(212,176,84,0.18)',
+              boxShadow: [
+                '-6px 12px 48px rgba(0,0,0,0.7)',
+                '0 0 0 1px rgba(255,255,255,0.03)',
+                '-2px 0 28px rgba(212,176,84,0.07)',
+              ].join(', '),
+            }}>
+              {/* Gold glow top-left corner */}
+              <div aria-hidden="true" style={{
+                position: 'absolute', top: -40, left: -40,
+                width: 200, height: 200,
+                background: 'radial-gradient(circle, rgba(212,176,84,0.22) 0%, transparent 65%)',
+                borderRadius: '50%', zIndex: 2, pointerEvents: 'none',
+              }} />
+
+              {/* Image — natural proportions, no letterbox */}
+              <img
+                src="/panel-itl.png"
+                alt="Panel ITL trading dashboard"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                  position: 'relative', zIndex: 1,
+                }}
+              />
+
+              {/* Subtle right-edge fade into black */}
+              <div aria-hidden="true" style={{
+                position: 'absolute', inset: 0, zIndex: 3,
+                background: 'linear-gradient(to right, transparent 55%, rgba(0,0,0,0.45) 82%, rgba(0,0,0,0.85) 100%)',
+              }} />
+            </div>
           </div>
         </div>
       </div>
