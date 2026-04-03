@@ -137,7 +137,7 @@ const CARDS = [
     title: 'Algoryze X',
     body: 'Plataforma de backtesting, journal de trading e indicadores premium para apoyarte en tu operativa.',
     media: '/algoryze-x.png',
-    badge: 'PRO',
+    video: '/algoryze-itl.mp4',
   },
 ]
 
@@ -149,7 +149,7 @@ function ProgramCard({ card, delay }) {
         {/* ── Media area ── */}
         <div style={{ height: 280, background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
           <video
-            src="/live-trading.mp4"
+            src={card.video || '/live-trading.mp4'}
             autoPlay muted loop playsInline
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
