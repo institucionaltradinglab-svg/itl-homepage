@@ -137,6 +137,7 @@ const CARDS = [
     body: 'Plataforma de backtesting, journal de trading e indicadores premium para apoyarte en tu operativa.',
     media: '/algoryze-x.png',
     video: '/algoryze-itl.mp4',
+    startTime: 1,
   },
 ]
 
@@ -151,6 +152,7 @@ function ProgramCard({ card, delay }) {
             src={card.video || '/live-trading.mp4'}
             autoPlay muted loop playsInline
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            onLoadedMetadata={card.startTime ? e => { e.target.currentTime = card.startTime } : undefined}
           />
           {/* subtle bottom fade for text legibility */}
           <div style={{
