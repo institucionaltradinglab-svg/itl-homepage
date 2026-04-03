@@ -75,18 +75,18 @@ function GoldOrb() {
         }
         @media (max-width: 768px) {
           .gold-orb-fill {
-            width: 320px !important;
-            height: 320px !important;
-            filter: blur(36px) !important;
+            width: 420px !important;
+            height: 420px !important;
+            filter: blur(44px) !important;
           }
           .gold-orb-ring {
-            width: 280px !important;
-            height: 280px !important;
+            width: 360px !important;
+            height: 360px !important;
             box-shadow:
-              0 0 22px 10px rgba(212,176,84,0.28),
-              0 0 55px 28px rgba(212,176,84,0.15),
-              0 0 110px 55px rgba(212,176,84,0.08),
-              inset 0 0 40px rgba(212,176,84,0.1) !important;
+              0 0 18px 8px rgba(212,176,84,0.14),
+              0 0 45px 22px rgba(212,176,84,0.08),
+              0 0 90px 45px rgba(212,176,84,0.04),
+              inset 0 0 30px rgba(212,176,84,0.05) !important;
           }
         }
       `}</style>
