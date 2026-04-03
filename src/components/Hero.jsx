@@ -364,39 +364,43 @@ export default function Hero() {
         </p>
 
         {/* Scroll indicator */}
-        <button
-          onClick={() => document.getElementById('metodología')?.scrollIntoView({ behavior: 'smooth' })}
-          aria-label="Scroll hacia abajo"
-          style={{
-            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10,
-            background: 'transparent', border: 'none', cursor: 'pointer',
-            padding: '8px 16px',
-          }}
-        >
-          <span style={{
-            fontSize: 11, fontWeight: 500, letterSpacing: '0.12em',
-            textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)',
-          }}>
-            Descubrir
-          </span>
-          <div className="scroll-arrow-wrap">
-            <svg className="scroll-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 4v12M5 11l5 5 5-5" stroke="rgba(212,176,84,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </button>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <button
+            onClick={() => document.getElementById('metodología')?.scrollIntoView({ behavior: 'smooth' })}
+            aria-label="Scroll hacia abajo"
+            style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10,
+              background: 'transparent', border: 'none', cursor: 'pointer',
+              padding: '8px 16px',
+            }}
+          >
+            <span style={{
+              fontSize: 11, fontWeight: 500, letterSpacing: '0.12em',
+              textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)',
+            }}>
+              Descubrir
+            </span>
+            <div className="scroll-arrow-wrap">
+              <svg className="scroll-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 4v12M5 11l5 5 5-5" stroke="#d4b054" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </button>
+        </div>
 
         <style>{`
           .scroll-arrow-wrap {
-            width: 36px; height: 36px;
+            width: 42px; height: 42px;
             border-radius: 50%;
-            border: 1px solid rgba(212,176,84,0.2);
+            border: 1px solid rgba(212,176,84,0.4);
             display: flex; align-items: center; justify-content: center;
-            transition: border-color 0.3s, background 0.3s;
+            box-shadow: 0 0 18px rgba(212,176,84,0.18), 0 0 40px rgba(212,176,84,0.08);
+            transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
           }
           .scroll-arrow-wrap:hover {
-            border-color: rgba(212,176,84,0.5);
-            background: rgba(212,176,84,0.05);
+            border-color: rgba(212,176,84,0.85);
+            background: rgba(212,176,84,0.07);
+            box-shadow: 0 0 28px rgba(212,176,84,0.35), 0 0 60px rgba(212,176,84,0.15);
           }
           .scroll-arrow {
             animation: scroll-bounce 1.8s ease-in-out infinite;
