@@ -38,12 +38,11 @@ function GoldOrb() {
           pointerEvents: 'none',
         }}
       >
-        {/* 1. Diffuse warm fill — large, very blurred */}
-        <div style={{
-          width: 560, height: 560,
+        {/* 1. Diffuse warm fill */}
+        <div className="gold-orb-fill" style={{
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(110,68,0,0.45) 0%, rgba(60,36,0,0.2) 45%, transparent 70%)',
-          filter: 'blur(48px)',
+          background: 'radial-gradient(circle, rgba(120,75,0,0.55) 0%, rgba(70,42,0,0.25) 45%, transparent 70%)',
+          filter: 'blur(52px)',
           position: 'absolute',
           top: '50%', left: '50%',
           transform: 'translate(-50%, -50%)',
@@ -51,26 +50,44 @@ function GoldOrb() {
 
         {/* 2. Main gold ring with glow */}
         <div className="gold-orb-ring" style={{
-          width: 480, height: 480,
           borderRadius: '50%',
-          border: '1.5px solid rgba(212,176,84,0.55)',
-          boxShadow: [
-            '0 0 28px 12px rgba(212,176,84,0.18)',
-            '0 0 70px 35px rgba(212,176,84,0.09)',
-            '0 0 140px 70px rgba(212,176,84,0.05)',
-            'inset 0 0 50px rgba(212,176,84,0.06)',
-          ].join(', '),
+          border: '1.5px solid rgba(212,176,84,0.6)',
           position: 'relative',
         }} />
       </div>
 
       <style>{`
+        .gold-orb-fill {
+          width: 560px; height: 560px;
+        }
         .gold-orb-ring {
+          width: 480px; height: 480px;
+          box-shadow:
+            0 0 30px 14px rgba(212,176,84,0.22),
+            0 0 80px 40px rgba(212,176,84,0.11),
+            0 0 160px 80px rgba(212,176,84,0.06),
+            inset 0 0 60px rgba(212,176,84,0.07);
           animation: orb-breathe 4.5s ease-in-out infinite;
         }
         @keyframes orb-breathe {
           0%, 100% { transform: scale(1);    opacity: 0.85; }
-          50%       { transform: scale(1.05); opacity: 1;    }
+          50%       { transform: scale(1.06); opacity: 1;    }
+        }
+        @media (max-width: 768px) {
+          .gold-orb-fill {
+            width: 320px !important;
+            height: 320px !important;
+            filter: blur(36px) !important;
+          }
+          .gold-orb-ring {
+            width: 280px !important;
+            height: 280px !important;
+            box-shadow:
+              0 0 22px 10px rgba(212,176,84,0.28),
+              0 0 55px 28px rgba(212,176,84,0.15),
+              0 0 110px 55px rgba(212,176,84,0.08),
+              inset 0 0 40px rgba(212,176,84,0.1) !important;
+          }
         }
       `}</style>
     </>
@@ -108,10 +125,11 @@ export default function MidCTA() {
       <GoldOrb />
 
       {/* Vignette — keeps edges pure black */}
-      <div aria-hidden="true" style={{
+      <div aria-hidden="true" className="orb-vignette" style={{
         position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
         background: 'radial-gradient(ellipse 52% 56% at 50% 50%, transparent 0%, rgba(0,0,0,0.35) 52%, #000 70%)',
       }} />
+      <style>{`.orb-vignette { background: radial-gradient(ellipse 52% 56% at 50% 50%, transparent 0%, rgba(0,0,0,0.35) 52%, #000 70%); } @media (max-width: 768px) { .orb-vignette { background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, rgba(0,0,0,0.2) 55%, #000 78%) !important; } }`}</style>
 
       {/* Content */}
       <div
