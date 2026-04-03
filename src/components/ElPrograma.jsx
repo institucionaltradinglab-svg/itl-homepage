@@ -118,7 +118,6 @@ const CARDS = [
     title: 'Sesiones en Live',
     body: 'Sesiones en directo de análisis de mercado, operativas en vivo y resolución de dudas en tiempo real con el equipo.',
     media: null,   // gold icon placeholder only
-    badge: 'LIVE',
   },
   {
     Icon: IconChart,
@@ -147,31 +146,17 @@ function ProgramCard({ card, delay }) {
     <div ref={cardRef} className="itl-fu">
       <SpotlightCard>
         {/* ── Media area ── */}
-        <div style={{ height: 280, background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
+        <div className="program-card-media" style={{ background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
           <video
             src={card.video || '/live-trading.mp4'}
             autoPlay muted loop playsInline
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
           {/* subtle bottom fade for text legibility */}
           <div style={{
             position: 'absolute', inset: 0,
             background: 'linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.1) 40%, transparent 100%)',
           }} />
-          {/* LIVE badge — red pill, card 1 only */}
-          {card.badge === 'LIVE' && (
-            <div style={{
-              position: 'absolute', top: 14, left: 14, zIndex: 3,
-              padding: '4px 12px',
-              borderRadius: 9999,
-              background: '#e03131',
-              fontSize: 11, fontWeight: 700,
-              letterSpacing: '0.06em',
-              color: '#fff',
-            }}>
-              LIVE
-            </div>
-          )}
         </div>
 
         {/* ── Text block at bottom ── */}
@@ -227,6 +212,10 @@ export default function ElPrograma() {
         .itl-fu { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .itl-fu.itl-vis { opacity: 1; transform: translateY(0); }
         .spotlight-card:hover { transform: scale(1.02) !important; box-shadow: 0 8px 40px rgba(212,176,84,0.1) !important; border-color: rgba(212,176,84,0.22) !important; }
+        .program-card-media { height: 280px; }
+        @media (max-width: 768px) {
+          .program-card-media { height: 200px; }
+        }
       `}</style>
     </section>
   )
