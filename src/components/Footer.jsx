@@ -65,21 +65,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center: nav links */}
-          <div className="footer-nav">
-            {NAV_LINKS.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color 0.2s ease' }}
-                onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
-              >
-                {label}
-              </a>
-            ))}
-          </div>
-
           {/* Right: subscribe */}
           <div className="footer-subscribe">
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.38)', lineHeight: 1.6, marginBottom: 14 }}>
@@ -159,16 +144,10 @@ export default function Footer() {
       <style>{`
         .footer-main {
           display: grid;
-          grid-template-columns: 220px 1fr 320px;
+          grid-template-columns: 1fr 360px;
           gap: 40px;
           align-items: start;
           margin-bottom: 48px;
-        }
-        .footer-nav {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 18px;
         }
         @media (max-width: 768px) {
           .footer-main {
@@ -182,20 +161,8 @@ export default function Footer() {
             align-items: center;
             text-align: center;
           }
-          .footer-nav {
-            flex-direction: row !important;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px 24px !important;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding: 24px 0;
-          }
           .footer-subscribe {
             text-align: center;
-          }
-          .footer-subscribe p {
-            font-size: 13px;
           }
         }
       `}</style>
