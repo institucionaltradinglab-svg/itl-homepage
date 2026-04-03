@@ -20,7 +20,15 @@ export default function ComoTrabajamos() {
   const rightRef = useFadeUp(0.08)
 
   return (
-    <section id="metodología" style={{ padding: '128px 24px', overflow: 'hidden' }}>
+    <section id="metodología" style={{ padding: '128px 24px', overflow: 'hidden', position: 'relative' }}>
+      {/* Fade-in top edge — softens the slide-up over Hero */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', top: 0, left: 0, right: 0,
+        height: 120,
+        background: 'linear-gradient(to bottom, #000 0%, transparent 100%)',
+        pointerEvents: 'none',
+        zIndex: 2,
+      }} />
       <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }}>
 
         {/* ─── Left ─── */}

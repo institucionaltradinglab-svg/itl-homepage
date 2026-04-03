@@ -14,13 +14,18 @@ export default function App() {
     <>
       <Navbar />
       <main>
-        <Hero />
-        <ComoTrabajamos />
-        <ElPrograma />
-        <LoQueIncluye />
-        <MidCTA />
-        <Testimonios />
-        <FAQ />
+        {/* Hero is sticky — next section slides up over it */}
+        <div style={{ position: 'sticky', top: 0, zIndex: 0 }}>
+          <Hero />
+        </div>
+        <div style={{ position: 'relative', zIndex: 1, background: '#000' }}>
+          <ComoTrabajamos />
+          <ElPrograma />
+          <LoQueIncluye />
+          <MidCTA />
+          <Testimonios />
+          <FAQ />
+        </div>
       </main>
       <Footer />
     </>
