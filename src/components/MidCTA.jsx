@@ -118,18 +118,25 @@ export default function MidCTA() {
     <section style={{
       position: 'relative',
       padding: '120px 24px',
-      overflow: 'hidden',
       textAlign: 'center',
     }}>
-      {/* Gold orb background */}
-      <GoldOrb />
-
-      {/* Vignette — keeps edges pure black */}
-      <div aria-hidden="true" className="orb-vignette" style={{
-        position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 52% 56% at 50% 50%, transparent 0%, rgba(0,0,0,0.35) 52%, #000 70%)',
-      }} />
-      <style>{`.orb-vignette { background: radial-gradient(ellipse 52% 56% at 50% 50%, transparent 0%, rgba(0,0,0,0.35) 52%, #000 70%); } @media (max-width: 768px) { .orb-vignette { background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, rgba(0,0,0,0.2) 55%, #000 78%) !important; } }`}</style>
+      {/* Orb container — clipped separately so it doesn't cut on mobile */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0,
+        overflow: 'hidden',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }}>
+        <GoldOrb />
+        {/* Vignette */}
+        <div className="orb-vignette" style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+        }} />
+      </div>
+      <style>{`
+        .orb-vignette { background: radial-gradient(ellipse 52% 56% at 50% 50%, transparent 0%, rgba(0,0,0,0.35) 52%, #000 70%); }
+        @media (max-width: 768px) { .orb-vignette { background: radial-gradient(ellipse 90% 65% at 50% 50%, transparent 0%, rgba(0,0,0,0.15) 55%, #000 80%) !important; } }
+      `}</style>
 
       {/* Content */}
       <div
