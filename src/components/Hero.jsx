@@ -363,36 +363,49 @@ export default function Hero() {
           Un sistema claro y replicable para que desarrolles criterio propio y tomes decisiones con lógica en cada trade.
         </p>
 
+        {/* Scroll indicator */}
         <button
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '0 32px', height: 52,
-            borderRadius: 9999,
-            border: '1px solid rgba(212,176,84,0.3)',
-            background: 'transparent',
-            color: '#d4b054',
-            fontSize: 14, fontWeight: 500,
-            fontFamily: 'inherit',
-            cursor: 'pointer',
-            transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'rgba(212,176,84,0.88)'
-            e.currentTarget.style.background   = 'rgba(212,176,84,0.06)'
-            e.currentTarget.style.boxShadow    = '0 0 28px rgba(212,176,84,0.2)'
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'rgba(212,176,84,0.3)'
-            e.currentTarget.style.background  = 'transparent'
-            e.currentTarget.style.boxShadow   = 'none'
-          }}
           onClick={() => document.getElementById('metodología')?.scrollIntoView({ behavior: 'smooth' })}
+          aria-label="Scroll hacia abajo"
+          style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10,
+            background: 'transparent', border: 'none', cursor: 'pointer',
+            padding: '8px 16px',
+          }}
         >
-          Ver cómo funciona
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M3 7H11M8 4L11 7L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <span style={{
+            fontSize: 11, fontWeight: 500, letterSpacing: '0.12em',
+            textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)',
+          }}>
+            Descubrir
+          </span>
+          <div className="scroll-arrow-wrap">
+            <svg className="scroll-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 4v12M5 11l5 5 5-5" stroke="rgba(212,176,84,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
         </button>
+
+        <style>{`
+          .scroll-arrow-wrap {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(212,176,84,0.2);
+            display: flex; align-items: center; justify-content: center;
+            transition: border-color 0.3s, background 0.3s;
+          }
+          .scroll-arrow-wrap:hover {
+            border-color: rgba(212,176,84,0.5);
+            background: rgba(212,176,84,0.05);
+          }
+          .scroll-arrow {
+            animation: scroll-bounce 1.8s ease-in-out infinite;
+          }
+          @keyframes scroll-bounce {
+            0%, 100% { transform: translateY(0);   opacity: 0.6; }
+            50%       { transform: translateY(4px); opacity: 1;   }
+          }
+        `}</style>
       </div>
     </section>
   )
