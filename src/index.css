@@ -49,3 +49,46 @@
 ::-webkit-scrollbar-track { background: #000; }
 ::-webkit-scrollbar-thumb { background: rgba(212,176,84,0.18); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(212,176,84,0.35); }
+
+/* ─────────────────────────────────────────────
+   Mobile responsive — reduce section padding
+────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* All sections with large vertical padding */
+  section {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Hero: keep full-height but reduce top push */
+  section:first-of-type {
+    padding-top: 100px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Section header spacing */
+  section h2 {
+    font-size: clamp(26px, 7vw, 38px) !important;
+    margin-bottom: 32px !important;
+  }
+
+  /* Grids → single column */
+  section [style*="grid-template-columns: repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+  section [style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ComoTrabajamos two-col layout */
+  section [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Inner container max-width full on mobile */
+  section > div[style*="max-width"] {
+    max-width: 100% !important;
+  }
+}
