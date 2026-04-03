@@ -37,20 +37,14 @@ export default function Footer() {
 
   return (
     <footer style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{ padding: '64px 48px 40px', maxWidth: 1100, margin: '0 auto' }}>
+      <div style={{ padding: '56px 32px 36px', maxWidth: 1100, margin: '0 auto' }}>
 
-        {/* Main 3-col row */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '220px 1fr 320px',
-          gap: 40,
-          alignItems: 'start',
-          marginBottom: 56,
-        }}>
+        {/* Desktop: 3-col | Mobile: stacked */}
+        <div className="footer-main">
 
           {/* Left: logo + social */}
-          <div>
-            <div style={{ marginBottom: 24 }}>
+          <div className="footer-brand">
+            <div style={{ marginBottom: 20 }}>
               <img src="/text-logo.png" alt="Institucional Trading Lab" style={{ height: 28, width: 'auto', opacity: 0.75 }} />
             </div>
             <div style={{ display: 'flex', gap: 18, alignItems: 'center' }}>
@@ -61,11 +55,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  style={{
-                    color: 'rgba(212,176,84,0.45)',
-                    display: 'flex', alignItems: 'center',
-                    transition: 'color 0.2s ease',
-                  }}
+                  style={{ color: 'rgba(212,176,84,0.45)', display: 'flex', alignItems: 'center', transition: 'color 0.2s ease' }}
                   onMouseEnter={e => e.currentTarget.style.color = '#d4b054'}
                   onMouseLeave={e => e.currentTarget.style.color = 'rgba(212,176,84,0.45)'}
                 >
@@ -75,21 +65,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center: nav links — vertical, centered */}
-          <div style={{
-            display: 'flex', flexDirection: 'column',
-            alignItems: 'center', gap: 18,
-          }}>
+          {/* Center: nav links */}
+          <div className="footer-nav">
             {NAV_LINKS.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
-                style={{
-                  fontSize: 13,
-                  color: 'rgba(255,255,255,0.4)',
-                  textDecoration: 'none',
-                  transition: 'color 0.2s ease',
-                }}
+                style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color 0.2s ease' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
               >
@@ -99,18 +81,12 @@ export default function Footer() {
           </div>
 
           {/* Right: subscribe */}
-          <div>
-            <p style={{
-              fontSize: 13,
-              color: 'rgba(255,255,255,0.38)',
-              lineHeight: 1.6,
-              marginBottom: 16,
-            }}>
+          <div className="footer-subscribe">
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.38)', lineHeight: 1.6, marginBottom: 14 }}>
               Recibe dirección y oportunidades semanales gratis
             </p>
             <div style={{
-              display: 'flex',
-              alignItems: 'center',
+              display: 'flex', alignItems: 'center',
               background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: 9999,
@@ -125,21 +101,18 @@ export default function Footer() {
                 style={{
                   background: 'transparent', border: 'none', outline: 'none',
                   color: 'rgba(255,255,255,0.55)', fontSize: 13, flex: 1,
-                  fontFamily: 'inherit',
+                  fontFamily: 'inherit', minWidth: 0,
                 }}
               />
               <button
                 style={{
-                  padding: '0 20px', height: 34,
-                  borderRadius: 9999,
-                  border: 'none',
-                  background: '#d4b054',
-                  color: '#0a0a0a',
+                  padding: '0 18px', height: 34,
+                  borderRadius: 9999, border: 'none',
+                  background: '#d4b054', color: '#0a0a0a',
                   fontSize: 13, fontWeight: 600,
                   fontFamily: 'inherit', cursor: 'pointer',
                   transition: 'background 0.2s, box-shadow 0.2s',
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0,
+                  whiteSpace: 'nowrap', flexShrink: 0,
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.background = '#e0c060'
@@ -161,7 +134,7 @@ export default function Footer() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           paddingTop: 24,
           borderTop: '1px solid rgba(255,255,255,0.04)',
-          flexWrap: 'wrap', gap: 12,
+          flexWrap: 'wrap', gap: 10,
         }}>
           <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)' }}>
             © 2026 Institucional Trading Lab. All rights reserved.
@@ -182,6 +155,50 @@ export default function Footer() {
         </div>
 
       </div>
+
+      <style>{`
+        .footer-main {
+          display: grid;
+          grid-template-columns: 220px 1fr 320px;
+          gap: 40px;
+          align-items: start;
+          margin-bottom: 48px;
+        }
+        .footer-nav {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 18px;
+        }
+        @media (max-width: 768px) {
+          .footer-main {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+            margin-bottom: 36px !important;
+          }
+          .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+          .footer-nav {
+            flex-direction: row !important;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 24px !important;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 24px 0;
+          }
+          .footer-subscribe {
+            text-align: center;
+          }
+          .footer-subscribe p {
+            font-size: 13px;
+          }
+        }
+      `}</style>
     </footer>
   )
 }
