@@ -123,6 +123,7 @@ const CARDS = [
     Icon: IconChart,
     title: 'Análisis de Mercado',
     body: 'Análisis diario de mercado con niveles institucionales, contexto de sesión y sesgo de dirección.',
+    video: '/operativa-itl.mp4',
     media: null,   // gold icon placeholder only
   },
   {
