@@ -169,7 +169,7 @@ export default function MidCTA() {
           Desarrolla una operativa basada en reglas claras, ejecución consciente y consistencia a largo plazo.
         </p>
 
-        <a href="https://itl-vsl.vercel.app" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+        <a href="https://join.institucionaltradinglab.com/360/quiz?utm_source=homepage&utm_medium=web&utm_campaign=bootcamp-3&utm_content=midcta" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
           <button
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -193,7 +193,7 @@ export default function MidCTA() {
               e.currentTarget.style.boxShadow   = 'none'
             }}
           >
-            Empieza hoy
+            Aplica al Bootcamp 3.0
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3 7H11M8 4L11 7L8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

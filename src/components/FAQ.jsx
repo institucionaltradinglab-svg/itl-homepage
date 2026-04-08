@@ -23,8 +23,7 @@ const FAQ_ITEMS = [
   },
 ]
 
-function FAQItem({ item, index }) {
-  const [open, setOpen] = useState(false)
+function FAQItem({ item, isOpen, onToggle }) {
   const bodyRef = useRef(null)
   const [height, setHeight] = useState(0)
 
@@ -35,7 +34,7 @@ function FAQItem({ item, index }) {
   return (
     <div style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={onToggle}
         style={{
           width: '100%',
           display: 'flex',
@@ -52,20 +51,19 @@ function FAQItem({ item, index }) {
           cursor: 'pointer',
           gap: 20,
         }}
-        aria-expanded={open}
+        aria-expanded={isOpen}
       >
         <span style={{ lineHeight: 1.45 }}>{item.q}</span>
 
-        {/* Gold expand icon — no orange */}
         <span style={{
           width: 24, height: 24,
           borderRadius: '50%',
-          border: `1px solid ${open ? 'rgba(212,176,84,0.6)' : 'rgba(212,176,84,0.25)'}`,
-          background: open ? 'rgba(212,176,84,0.07)' : 'transparent',
+          border: `1px solid ${isOpen ? 'rgba(212,176,84,0.6)' : 'rgba(212,176,84,0.25)'}`,
+          background: isOpen ? 'rgba(212,176,84,0.07)' : 'transparent',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           flexShrink: 0,
-          transition: 'transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s, background 0.3s',
-          transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
+          transition: 'transform 0.38s cubic-bezier(0.22,1,0.36,1), border-color 0.3s, background 0.3s',
+          transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
           color: '#d4b054',
         }}>
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -75,17 +73,13 @@ function FAQItem({ item, index }) {
         </span>
       </button>
 
-      {/* Answer — smooth height transition */}
       <div style={{
         overflow: 'hidden',
-        maxHeight: open ? `${height + 32}px` : '0px',
+        maxHeight: isOpen ? `${height + 32}px` : '0px',
         transition: 'max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1)',
       }}>
         <div ref={bodyRef} style={{ paddingBottom: 24 }}>
-          <p style={{
-            fontSize: 14, lineHeight: 1.76,
-            color: 'rgba(255,255,255,0.44)',
-          }}>
+          <p style={{ fontSize: 14, lineHeight: 1.76, color: 'rgba(255,255,255,0.44)' }}>
             {item.a}
           </p>
         </div>
@@ -95,6 +89,7 @@ function FAQItem({ item, index }) {
 }
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null)
   const titleRef = useRef(null)
 
   useEffect(() => {
@@ -141,7 +136,14 @@ export default function FAQ() {
         </div>
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          {FAQ_ITEMS.map((item, i) => <FAQItem key={item.q} item={item} index={i} />)}
+          {FAQ_ITEMS.map((item, i) => (
+            <FAQItem
+              key={item.q}
+              item={item}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
+          ))}
         </div>
       </div>
     </section>
