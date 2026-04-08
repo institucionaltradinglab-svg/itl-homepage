@@ -50,7 +50,6 @@ export default async function handler(req, res) {
         email_address: email,
         status: 'subscribed',
         tags: ['homepage-itl-new'],
-        merge_fields: { SOURCE: 'homepage-itl-new' },
       }),
     })
 
