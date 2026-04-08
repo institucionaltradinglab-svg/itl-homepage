@@ -131,6 +131,7 @@ const CARDS = [
     title: 'Comunidad Privada',
     body: 'Comunidad exclusiva con dirección de mercado diaria, alertas de entradas en vivo y cultura de excelencia operativa.',
     media: '/panel-itl.png',
+    video: '/discord-itl.mp4',
   },
   {
     Icon: IconTerminal,
