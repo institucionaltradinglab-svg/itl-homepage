@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
@@ -7,25 +6,23 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  // Parse body manually (Vercel doesn't auto-parse for plain functions)
-  let body = ''
-  try {
-    body = await new Promise((resolve, reject) => {
-      let data = ''
-      req.on('data', chunk => { data += chunk })
-      req.on('end', () => resolve(data))
-      req.on('error', reject)
-    })
-  } catch {
-    return res.status(400).json({ error: 'Error leyendo el body' })
-  }
-
+  // Handle both pre-parsed body (Vercel sometimes parses it) and raw stream
   let email
   try {
-    const parsed = JSON.parse(body)
+    let parsed = req.body
+    if (typeof parsed === 'string') parsed = JSON.parse(parsed)
+    if (!parsed) {
+      const raw = await new Promise((resolve, reject) => {
+        let data = ''
+        req.on('data', chunk => { data += chunk })
+        req.on('end', () => resolve(data))
+        req.on('error', reject)
+      })
+      parsed = JSON.parse(raw)
+    }
     email = parsed.email
-  } catch {
-    return res.status(400).json({ error: 'JSON inválido' })
+  } catch (e) {
+    return res.status(400).json({ error: 'Error parseando body: ' + e.message })
   }
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -33,9 +30,10 @@ export default async function handler(req, res) {
   }
 
   const { MAILCHIMP_API_KEY, MAILCHIMP_LIST_ID, MAILCHIMP_DC } = process.env
-  if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID || !MAILCHIMP_DC) {
-    return res.status(500).json({ error: 'Variables de entorno no configuradas' })
-  }
+
+  if (!MAILCHIMP_API_KEY) return res.status(500).json({ error: 'Falta MAILCHIMP_API_KEY' })
+  if (!MAILCHIMP_LIST_ID) return res.status(500).json({ error: 'Falta MAILCHIMP_LIST_ID' })
+  if (!MAILCHIMP_DC)      return res.status(500).json({ error: 'Falta MAILCHIMP_DC' })
 
   const url = `https://${MAILCHIMP_DC}.api.mailchimp.com/3.0/lists/${MAILCHIMP_LIST_ID}/members`
 
@@ -60,13 +58,12 @@ export default async function handler(req, res) {
     }
 
     if (!mc.ok) {
-      console.error('Mailchimp error:', data)
-      return res.status(500).json({ error: data.detail || 'Error al suscribirse' })
+      // Return full Mailchimp error so we can debug
+      return res.status(500).json({ error: `Mailchimp: ${data.title} — ${data.detail}` })
     }
 
     return res.status(200).json({ ok: true })
   } catch (err) {
-    console.error('Subscribe error:', err)
-    return res.status(500).json({ error: 'Error del servidor' })
+    return res.status(500).json({ error: 'Fetch error: ' + err.message })
   }
 }

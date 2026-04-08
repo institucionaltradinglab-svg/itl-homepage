@@ -35,6 +35,7 @@ const NAV_LINKS = [
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState(null) // null | 'loading' | 'ok' | 'exists' | 'error'
+  const [errorMsg, setErrorMsg] = useState('')
 
   async function handleSubscribe(e) {
     e.preventDefault()
@@ -52,9 +53,11 @@ export default function Footer() {
         setEmail('')
       } else {
         setStatus('error')
+        setErrorMsg(data.error || 'Error desconocido')
       }
-    } catch {
+    } catch (e) {
       setStatus('error')
+      setErrorMsg(e.message)
     }
   }
 
@@ -138,7 +141,7 @@ export default function Footer() {
               <p style={{ fontSize: 11, color: 'rgba(212,176,84,0.6)', marginTop: 8 }}>Ya estás en la lista.</p>
             )}
             {status === 'error' && (
-              <p style={{ fontSize: 11, color: 'rgba(255,80,80,0.7)', marginTop: 8 }}>Error al suscribirse. Intenta de nuevo.</p>
+              <p style={{ fontSize: 11, color: 'rgba(255,80,80,0.7)', marginTop: 8 }}>{errorMsg}</p>
             )}
           </div>
         </div>
