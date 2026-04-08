@@ -157,15 +157,19 @@ export default function Footer() {
             © 2026 Institucional Trading Lab. All rights reserved.
           </span>
           <div style={{ display: 'flex', gap: 20 }}>
-            {['Privacy', 'Terms', 'Cookies'].map(l => (
-              <a key={l} href="#" style={{
+            {[
+              { label: 'Privacidad',   href: 'https://hub.institucionaltradinglab.com/privacypolicy' },
+              { label: 'Términos',     href: 'https://hub.institucionaltradinglab.com/terms-of-service' },
+              { label: 'Aviso Legal',  href: 'https://hub.institucionaltradinglab.com/aviso-legal' },
+            ].map(({ label, href }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={{
                 fontSize: 11, color: 'rgba(255,255,255,0.2)',
                 textDecoration: 'none', transition: 'color 0.2s',
               }}
                 onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.2)'}
               >
-                {l}
+                {label}
               </a>
             ))}
           </div>
