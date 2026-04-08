@@ -34,6 +34,29 @@ const NAV_LINKS = [
 
 export default function Footer() {
   const [email, setEmail] = useState('')
+  const [status, setStatus] = useState(null) // null | 'loading' | 'ok' | 'exists' | 'error'
+
+  async function handleSubscribe(e) {
+    e.preventDefault()
+    if (!email || status === 'loading') return
+    setStatus('loading')
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+      if (data.ok) {
+        setStatus(data.alreadySubscribed ? 'exists' : 'ok')
+        setEmail('')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <footer style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
@@ -70,47 +93,53 @@ export default function Footer() {
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.38)', lineHeight: 1.6, marginBottom: 14 }}>
               Recibe dirección y oportunidades semanales gratis
             </p>
-            <div style={{
-              display: 'flex', alignItems: 'center',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: 9999,
-              padding: '5px 5px 5px 18px',
-              gap: 8,
-            }}>
-              <input
-                type="email"
-                placeholder="tu@email.com"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                style={{
-                  background: 'transparent', border: 'none', outline: 'none',
-                  color: 'rgba(255,255,255,0.55)', fontSize: 13, flex: 1,
-                  fontFamily: 'inherit', minWidth: 0,
-                }}
-              />
-              <button
-                style={{
-                  padding: '0 18px', height: 34,
-                  borderRadius: 9999, border: 'none',
-                  background: '#d4b054', color: '#0a0a0a',
-                  fontSize: 13, fontWeight: 600,
-                  fontFamily: 'inherit', cursor: 'pointer',
-                  transition: 'background 0.2s, box-shadow 0.2s',
-                  whiteSpace: 'nowrap', flexShrink: 0,
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = '#e0c060'
-                  e.currentTarget.style.boxShadow = '0 0 18px rgba(212,176,84,0.35)'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = '#d4b054'
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
-              >
-                Suscríbete
-              </button>
-            </div>
+            <form onSubmit={handleSubscribe}>
+              <div style={{
+                display: 'flex', alignItems: 'center',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 9999,
+                padding: '5px 5px 5px 18px',
+                gap: 8,
+              }}>
+                <input
+                  type="email"
+                  placeholder="tu@email.com"
+                  value={email}
+                  onChange={e => { setEmail(e.target.value); setStatus(null) }}
+                  disabled={status === 'loading' || status === 'ok'}
+                  style={{
+                    background: 'transparent', border: 'none', outline: 'none',
+                    color: 'rgba(255,255,255,0.55)', fontSize: 13, flex: 1,
+                    fontFamily: 'inherit', minWidth: 0,
+                  }}
+                />
+                <button
+                  type="submit"
+                  disabled={status === 'loading' || status === 'ok'}
+                  style={{
+                    padding: '0 18px', height: 34,
+                    borderRadius: 9999, border: 'none',
+                    background: status === 'ok' ? 'rgba(212,176,84,0.3)' : '#d4b054',
+                    color: '#0a0a0a',
+                    fontSize: 13, fontWeight: 600,
+                    fontFamily: 'inherit',
+                    cursor: status === 'loading' || status === 'ok' ? 'default' : 'pointer',
+                    transition: 'background 0.2s, box-shadow 0.2s',
+                    whiteSpace: 'nowrap', flexShrink: 0,
+                    opacity: status === 'loading' ? 0.6 : 1,
+                  }}
+                >
+                  {status === 'loading' ? '...' : status === 'ok' ? '¡Suscrito!' : 'Suscríbete'}
+                </button>
+              </div>
+            </form>
+            {status === 'exists' && (
+              <p style={{ fontSize: 11, color: 'rgba(212,176,84,0.6)', marginTop: 8 }}>Ya estás en la lista.</p>
+            )}
+            {status === 'error' && (
+              <p style={{ fontSize: 11, color: 'rgba(255,80,80,0.7)', marginTop: 8 }}>Error al suscribirse. Intenta de nuevo.</p>
+            )}
           </div>
         </div>
 
