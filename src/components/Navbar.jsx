@@ -120,7 +120,18 @@ export default function Navbar() {
               maxWidth: scrolled ? 0 : 130,
               opacity: scrolled ? 0 : 1,
             }}>
-              <img src="/text-logo.png" alt="Institucional Trading Lab" style={{ height: 15, width: 'auto', display: 'block' }} />
+              <span style={{
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'rgba(255,255,255,0.7)',
+                whiteSpace: 'nowrap',
+                lineHeight: 1.2,
+                display: 'block',
+              }}>
+                Institucional<br />Trading Lab
+              </span>
             </div>
           </div>
 
