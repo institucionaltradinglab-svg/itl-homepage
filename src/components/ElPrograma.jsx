@@ -152,9 +152,9 @@ function ProgramCard({ card, delay }) {
         <div className="program-card-media" style={{ background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
           <video
             src={card.video || '/live-trading.mp4'}
-            autoPlay muted loop playsInline
+            autoPlay muted loop playsInline preload="auto"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            onLoadedMetadata={card.startTime ? e => { e.target.currentTime = card.startTime } : undefined}
+            onLoadedMetadata={e => { if (card.startTime) e.target.currentTime = card.startTime }}
           />
           {/* subtle bottom fade for text legibility */}
           <div style={{
