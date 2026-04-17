@@ -71,16 +71,7 @@ export default function Footer() {
           {/* Left: logo + social */}
           <div className="footer-brand">
             <div style={{ marginBottom: 20 }}>
-              <span style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.7)',
-                lineHeight: 1.3,
-              }}>
-                Institucional Trading Lab
-              </span>
+              <img src="/text-logo.png" alt="Institucional Trading Lab" style={{ height: 28, width: 'auto', opacity: 0.75 }} />
             </div>
             <div style={{ display: 'flex', gap: 18, alignItems: 'center' }}>
               {SOCIAL.map(({ label, Icon, href }) => (
