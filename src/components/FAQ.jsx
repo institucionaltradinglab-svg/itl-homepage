@@ -45,7 +45,7 @@ function FAQItem({ item, isOpen, onToggle }) {
           border: 'none',
           color: '#fff',
           fontFamily: 'inherit',
-          fontSize: 15,
+          fontSize: 17,
           fontWeight: 500,
           textAlign: 'left',
           cursor: 'pointer',
@@ -79,7 +79,7 @@ function FAQItem({ item, isOpen, onToggle }) {
         transition: 'max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1)',
       }}>
         <div ref={bodyRef} style={{ paddingBottom: 24 }}>
-          <p style={{ fontSize: 14, lineHeight: 1.76, color: 'rgba(255,255,255,0.44)' }}>
+          <p style={{ fontSize: 16, lineHeight: 1.76, color: 'rgba(255,255,255,0.44)' }}>
             {item.a}
           </p>
         </div>
@@ -121,7 +121,7 @@ export default function FAQ() {
             marginBottom: 56,
           }}
         >
-          <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 16 }}>
+          <p style={{ fontSize: 12, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 16 }}>
             FAQ
           </p>
           <h2 style={{

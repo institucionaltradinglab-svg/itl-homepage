@@ -166,14 +166,14 @@ function ProgramCard({ card, delay }) {
         {/* ── Text block at bottom ── */}
         <div style={{ padding: '22px 24px 28px' }}>
           <h3 style={{
-            fontSize: 17, fontWeight: 700,
+            fontSize: 19, fontWeight: 700,
             letterSpacing: '-0.02em',
             color: '#d4b054',
             marginBottom: 8,
           }}>
             {card.title}
           </h3>
-          <p style={{ fontSize: 13, lineHeight: 1.65, color: 'rgba(255,255,255,0.42)' }}>
+          <p style={{ fontSize: 15, lineHeight: 1.65, color: 'rgba(255,255,255,0.42)' }}>
             {card.body}
           </p>
         </div>
@@ -191,7 +191,7 @@ export default function ElPrograma() {
 
         {/* Header */}
         <div ref={titleRef} className="itl-fu">
-          <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 16 }}>
+          <p style={{ fontSize: 12, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 16 }}>
             El Programa
           </p>
           <h2 style={{

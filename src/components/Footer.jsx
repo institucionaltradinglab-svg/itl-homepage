@@ -94,7 +94,7 @@ export default function Footer() {
 
           {/* Right: subscribe */}
           <div className="footer-subscribe">
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.38)', lineHeight: 1.6, marginBottom: 14 }}>
+            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.38)', lineHeight: 1.6, marginBottom: 14 }}>
               Recibe dirección y oportunidades semanales gratis
             </p>
             <form onSubmit={handleSubscribe}>

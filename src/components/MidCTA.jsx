@@ -143,7 +143,7 @@ export default function MidCTA() {
         ref={textRef}
         style={{
           position: 'relative', zIndex: 2,
-          maxWidth: 580, margin: '0 auto',
+          maxWidth: 420, margin: '0 auto',
           opacity: 0,
           transform: 'translateY(22px)',
           transition: 'opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1)',
@@ -161,12 +161,12 @@ export default function MidCTA() {
         </h2>
 
         <p style={{
-          fontSize: 15,
+          fontSize: 17,
           lineHeight: 1.7,
           color: 'rgba(255,255,255,0.45)',
           marginBottom: 40,
         }}>
-          Desarrolla una operativa basada en reglas claras, ejecución consciente y consistencia a largo plazo.
+          Desarrolla una operativa basada en reglas claras, consistencia a largo plazo y ejecución consciente.
         </p>
 
         <a href="https://join.institucionaltradinglab.com/360/quiz?utm_source=homepage&utm_medium=web&utm_campaign=bootcamp-3&utm_content=midcta" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
@@ -178,7 +178,7 @@ export default function MidCTA() {
               border: '1px solid rgba(212,176,84,0.4)',
               background: 'transparent',
               color: '#d4b054',
-              fontSize: 14, fontWeight: 500,
+              fontSize: 15, fontWeight: 500,
               fontFamily: 'inherit', cursor: 'pointer',
               transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
             }}
