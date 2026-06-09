@@ -113,25 +113,14 @@ export default function Navbar() {
         }}>
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginRight: 8 }}>
-            <img src="/logo-itl.png" alt="ITL logo" style={{ height: 28, width: 'auto', flexShrink: 0 }} />
+            <img src="/logo-itl.png" alt="ITL logo" style={{ height: 36, width: 'auto', flexShrink: 0 }} />
             <div style={{
               overflow: 'hidden',
               transition: 'max-width 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease',
-              maxWidth: scrolled ? 0 : 130,
+              maxWidth: scrolled ? 0 : 180,
               opacity: scrolled ? 0 : 1,
             }}>
-              <span style={{
-                fontSize: 10,
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.7)',
-                whiteSpace: 'nowrap',
-                lineHeight: 1.2,
-                display: 'block',
-              }}>
-                Institucional<br />Trading Lab
-              </span>
+              <img src="/text-logo.png" alt="Institucional Trading Lab" style={{ height: 20, width: 'auto', display: 'block' }} />
             </div>
           </div>
 
