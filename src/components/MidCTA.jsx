@@ -160,8 +160,8 @@ export default function MidCTA() {
           Deja de operar sin estructura. Empieza a seguir un sistema.
         </h2>
 
-        <p style={{
-          fontSize: 17,
+        <p className="itl-body-lg" style={{
+          fontSize: 15,
           lineHeight: 1.7,
           color: 'rgba(255,255,255,0.45)',
           marginBottom: 40,

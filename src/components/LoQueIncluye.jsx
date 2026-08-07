@@ -132,11 +132,11 @@ function GlassCard({ item, delay }) {
         <item.Icon />
       </div>
 
-      <h3 style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.01em', marginBottom: 10 }}>
+      <h3 className="lqi-card-title" style={{ fontSize: 14, fontWeight: 700, letterSpacing: '-0.01em', marginBottom: 10 }}>
         {item.title}
       </h3>
 
-      <p style={{ fontSize: 15, lineHeight: 1.68, color: 'rgba(255,255,255,0.42)' }}>
+      <p className="itl-card-body" style={{ fontSize: 13, lineHeight: 1.68, color: 'rgba(255,255,255,0.42)' }}>
         {item.body}
       </p>
     </div>
@@ -151,7 +151,7 @@ export default function LoQueIncluye() {
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
         <div ref={titleRef} className="lqi-fu">
-          <p style={{ fontSize: 12, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 16 }}>
+          <p className="itl-section-label" style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 16 }}>
             Lo Que Incluye
           </p>
           <h2 style={{

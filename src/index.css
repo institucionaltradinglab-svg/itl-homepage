@@ -51,6 +51,23 @@
 ::-webkit-scrollbar-thumb:hover { background: rgba(212,176,84,0.35); }
 
 /* ─────────────────────────────────────────────
+   Desktop typography — larger fonts on ≥1024px
+────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .itl-section-label { font-size: 12px !important; }
+  .itl-body-lg       { font-size: 17px !important; }
+  .itl-body-md       { font-size: 16px !important; }
+  .itl-card-title    { font-size: 19px !important; }
+  .itl-card-body     { font-size: 15px !important; }
+  .lqi-card-title    { font-size: 16px !important; }
+  .itl-faq-question  { font-size: 17px !important; }
+  .itl-faq-answer    { font-size: 16px !important; }
+  .itl-author-name   { font-size: 14px !important; }
+  .itl-author-loc    { font-size: 13px !important; }
+  .itl-footer-text   { font-size: 15px !important; }
+}
+
+/* ─────────────────────────────────────────────
    Mobile responsive — reduce section padding
 ────────────────────────────────────────────── */
 @media (max-width: 768px) {

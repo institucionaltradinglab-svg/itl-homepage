@@ -99,8 +99,8 @@ function TestimonioCard({ t, delay }) {
     >
       {/* Top — headline or stars */}
       {t.variant === 'headline' ? (
-        <p style={{
-          fontSize: 19,
+        <p className="itl-card-title" style={{
+          fontSize: 17,
           fontWeight: 700,
           lineHeight: 1.3,
           letterSpacing: '-0.02em',
@@ -114,8 +114,8 @@ function TestimonioCard({ t, delay }) {
       )}
 
       {/* Review body */}
-      <p style={{
-        fontSize: 16,
+      <p className="itl-body-md" style={{
+        fontSize: 14,
         lineHeight: 1.72,
         color: 'rgba(255,255,255,0.52)',
         marginBottom: 24,
@@ -138,10 +138,10 @@ function TestimonioCard({ t, delay }) {
           {t.initials}
         </div>
         <div>
-          <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', lineHeight: 1.3 }}>
+          <div className="itl-author-name" style={{ fontSize: 13, fontWeight: 600, color: '#fff', lineHeight: 1.3 }}>
             {t.name}
           </div>
-          <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', marginTop: 2 }}>
+          <div className="itl-author-loc" style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', marginTop: 2 }}>
             {t.location}
           </div>
         </div>
@@ -191,8 +191,8 @@ export default function Testimonios() {
             marginBottom: 56,
           }}
         >
-          <p style={{
-            fontSize: 12, fontWeight: 500, letterSpacing: '0.14em',
+          <p className="itl-section-label" style={{
+            fontSize: 11, fontWeight: 500, letterSpacing: '0.14em',
             textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 16,
           }}>
             Testimonios

@@ -33,7 +33,7 @@ export default function ComoTrabajamos() {
 
         {/* ─── Left ─── */}
         <div ref={leftRef} className="itl-fade-up">
-          <p style={{ fontSize: 12, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 22 }}>
+          <p className="itl-section-label" style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.38)', marginBottom: 22 }}>
             Cómo Trabajamos
           </p>
 
@@ -51,7 +51,7 @@ export default function ComoTrabajamos() {
             Sin claridad, no hay control — y sin control no hay consistencia
           </h2>
 
-          <p style={{ fontSize: 17, lineHeight: 1.76, color: 'rgba(255,255,255,0.46)', marginBottom: 36 }}>
+          <p className="itl-body-lg" style={{ fontSize: 15, lineHeight: 1.76, color: 'rgba(255,255,255,0.46)', marginBottom: 36 }}>
             Operar sin una estructura definida lleva a decisiones impulsivas y emocionales, y a resultados inconsistentes. El problema no es la falta de conocimiento. Es la falta de un proceso que puedas aplicar y repetir. Institutional Trading Lab organiza el trading en un sistema claro: entender la estructura, aplicar una estrategia concreta y ejecutar con control.
           </p>
 
