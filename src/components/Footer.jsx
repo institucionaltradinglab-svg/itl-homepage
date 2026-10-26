@@ -29,7 +29,7 @@ const NAV_LINKS = [
   { label: 'Metodología', href: '#metodología' },
   { label: 'Programa',    href: '#programa'    },
   { label: 'Comunidad',   href: '#resultados'  },
-  { label: 'FAQ',         href: '#faq'         },
+  // { label: 'FAQ',         href: '#faq'         },
 ]
 
 export default function Footer() {
