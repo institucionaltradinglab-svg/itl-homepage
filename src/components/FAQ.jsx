@@ -10,10 +10,6 @@ const FAQ_ITEMS = [
     a: 'La estrategia se puede aplicar en: Forex, Criptos, Índices (NASDAQ, SP500), Commodities (Oro) y Futuros.',
   },
   {
-    q: '¿El acceso al contenido es de por vida?',
-    a: 'Sí, una vez compras el Bootcamp tienes acceso de por vida a todo el material grabado, actualizaciones del curso y la comunidad de alumnos.',
-  },
-  {
     q: '¿Por cuánto tiempo puedo usar los indicadores?',
     a: 'Tu compra incluye 12 meses de licencia para Algoryze X, que incluye todos los indicadores premium, journaling y backtesting. Después puedes renovar a precio reducido de alumni.',
   },
