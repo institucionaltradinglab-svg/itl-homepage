@@ -6,7 +6,7 @@ import ElPrograma from './components/ElPrograma'
 import LoQueIncluye from './components/LoQueIncluye'
 import MidCTA from './components/MidCTA'
 import Testimonios from './components/Testimonios'
-import FAQ from './components/FAQ'
+// import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
           <LoQueIncluye />
           <MidCTA />
           <Testimonios />
-          <FAQ />
+          {/* <FAQ /> */}
         </div>
       </main>
       <Footer />

@@ -4,7 +4,7 @@ const NAV_LINKS = [
   { label: 'Metodología', href: '#metodología' },
   { label: 'Programa',    href: '#programa'    },
   { label: 'Resultados',  href: '#resultados'  },
-  { label: 'FAQ',         href: '#faq'         },
+  // { label: 'FAQ',         href: '#faq'         },
 ]
 
 function AnimatedNavLink({ label, href, onClick }) {
